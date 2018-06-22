@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="acta" *ngFor="let item of actasp">
+    <div class="header">
+      <p>{{item.nombre}}</p>
+    </div>
+    <div class="content">
+      <span> <strong>ID: </strong> <small>{{item.ID}}</small> </span>
+      <span> <strong>Grupo: </strong>{{item.grupo}}<small></small>    </span>
+      <span> <strong>Codigo: </strong> <small>{{item.codigo}}</small> </span>
+      <span> <strong>Nivel: </strong> <small>{{item.nivel}}</small> </span>
+    </div>
+    <div class="footer">
+        <a class="footer-item" [routerLink]="['../editar',item.ID]" (click)="ngVer()">Ver</a>
+        <a *ngIf="perfil=='admin'"   (click)="eliminar(item.ID)">Borrar</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.navbar{
+  background-color: rgb(92, 140, 172);
+  margin: 0px;
+  border-bottom: 0px solid #dbdbdb;
+  box-shadow: none;
+  
+}
+
+
+.tabs a{
+    color: #fff;
+   
+}
+
+li > a:hover{
+    background-color: rgb(100, 147, 177);
+}
+
+li > a{
+    
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+    
+}
+
+li.is-active  a{
+    /* color: #666666; */
+    color: rgb(92, 140, 172);
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-bottom-color: transparent!important;
+}
+
+.dropdown-content a{
+    color: rgb(95, 95, 95);
+    cursor: pointer;
+}

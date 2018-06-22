@@ -1,0 +1,21 @@
+.container{
+
+    margin-left: 20px;
+    margin-bottom: 50px;
+
+}
+
+.label-f{
+    display: inline-block;
+}
+
+.input-f{
+    margin: 0;
+}
+
+.content{
+    width: 47%;
+    margin: 15px;
+    display: block;
+    float: left;
+}

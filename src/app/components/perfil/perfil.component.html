@@ -1,0 +1,56 @@
+<div>
+  <div class="navbar">
+    <nav class="tabs">
+      <ul>
+        <li  routerLinkActive="active" #rla2="routerLinkActive" class="tab-item" [ngClass]="{'is-active': rla2.isActive==true}">
+          <a [routerLink]="['actas']" (click)="ver=false">
+            <span class="icon is-small">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>
+            </span>
+            <span>Actas</span>
+          </a>
+        </li>
+        <li *ngIf="user.profile==='admin'" routerLinkActive="active" #rla1="routerLinkActive" class="tab-item" [ngClass]="{'is-active': rla1.isActive==true}">
+  
+          <a [routerLink]="['estudiantes']" (click)="ver=true">
+            <span class="icon is-small">
+                <i class="fas fa-graduation-cap"></i>
+            </span>
+            <span>Estudiantes</span>
+          </a>
+        </li>
+        <li *ngIf="user.profile==='admin'" routerLinkActive="active" #rla="routerLinkActive" class="tab-item" [ngClass]="{'is-active': rla.isActive==true}">
+  
+          <a [routerLink]="['historial']">
+            <span class="icon is-small">
+              <i class="fas fa-history"></i>
+            </span>
+            <span>Historial</span>
+          </a>
+        </li>
+        <li  *ngIf="user.profile==='admin'" routerLinkActive="active" #rla3="routerLinkActive" class="tab-item" [ngClass]="{'is-active': rla3.isActive==true}">
+  
+          <a [routerLink]="['materias']">
+            <span class="icon is-small">
+              <i class="fa fa-file-alt" aria-hidden="true"></i>
+            </span>
+            <span>Materias</span>
+          </a>
+        </li>
+
+        <div class="dropdown" *ngIf="logged">
+            <a>{{user.name}}
+              (<small>{{user.profile}}</small>)
+            </a>
+            <div class="dropdown-content">
+                <a (click)="logout()">logout</a>
+            </div>
+        </div>
+      </ul>
+    </nav>
+  </div>
+
+  <router-outlet></router-outlet>
+
+
+</div>

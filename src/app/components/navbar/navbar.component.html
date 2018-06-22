@@ -1,0 +1,16 @@
+<nav class="nav-log">
+  <ul>
+    <div class="log">
+      <a href="#">APPCTAS</a>
+    </div>
+    <div class="dropdown" *ngIf="logged">
+        <a>{{user.name}}
+          (<small>{{user.profile}}</small>)
+        </a>
+        <div class="dropdown-content">
+            <a (click)="logout()">logout</a>
+        </div>
+    </div>
+      
+  </ul>
+</nav>

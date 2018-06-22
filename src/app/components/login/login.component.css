@@ -1,0 +1,20 @@
+.container{
+    display:block;
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    font-size: 16px;
+    background-color: #FCFFFF;
+    color: #53575A;
+    text-align: center;
+
+}
+
+
+.button-f{
+    transform: translate(-150%);
+}
+
+.label-f{
+    transform: translate(80%);
+}

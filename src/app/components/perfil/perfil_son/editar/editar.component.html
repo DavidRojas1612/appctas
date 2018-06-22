@@ -1,0 +1,81 @@
+<div class="container">
+ <div class="header">
+   <div class="header-item">
+      <h1 class="title">{{materia.nombre}}</h1>
+      <h2 class="subtitle">Codigo: <small>{{materia.codigo}} </small></h2>
+   </div>
+   <div class="header-item">
+      <h1 class="title">Docente: <small>{{materia.profesor}}</small></h1>
+      <h2 class="subtitle">Grupo <small>{{materia.grupo}}</small> </h2>
+   </div>
+   <div class="header-item">
+      <button class=" button-f " (click)="exportar()">Expotar</button>
+      <button class=" button-f " (click)="imprimir()">Imprimir</button>
+    </div>
+ </div>
+  <div class="content">
+      <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cedula</th>
+              <th>Nombre</th>
+              <th>Parcial 1</th>
+              <th>Parcial 2</th>
+              <th>seguimiento</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let mate of result; let i = index">
+            <tr>
+              <td>
+                {{i + 1}}
+              </td>
+              <td>
+                {{mate.cedula}}
+              </td>
+              <td>
+                {{mate.nombre}}
+              </td>
+              <td>
+                {{mate.notas[0]}}
+              </td>
+              <td>
+                {{mate.notas[1]}}
+              </td>
+              <td>
+                {{mate.notas[2]}}
+              </td>
+              <td>
+                <a *ngIf="perfil=='profesor'" (click)="editor(mate)">
+                  <i class="fa fa-pencil-square-o"></i> Editar</a>
+                <a *ngIf="perfil=='admin'" (click)="eliminar(mate)" class="eli">
+                  <i class="fa fa-pencil-square-o"></i> Eliminar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  <div class="footer" *ngIf="editar">
+    <form #form="ngForm" (ngSubmit)="guardarnotas(form)">
+      <div class="form-group">
+          <label class="label-f" for="password">Parcial 1:</label>
+          <input class="input-f" type="number" [(ngModel)]="notas[0]" name="nota1" min="0" max="5.0">  
+      </div>
+      <div class="form-group">
+          <label class="label-f ">Parcial 2:</label>
+          <input class="input-f" 
+                [(ngModel)]="notas[1]" 
+                name="nota2" 
+                type="number" 
+                min="0" 
+                max="5.0">
+      </div>
+      <div class="form-group">
+            <label class="label-f ">Seguimiento:</label>
+            <input class="input-f" [(ngModel)]="notas[2]" name="nota3" type="number" min="0" max="5.0">
+      </div>
+      <button class=" button-f" type="submit" >Guardar</button>
+    </form>
+  </div>
+</div>

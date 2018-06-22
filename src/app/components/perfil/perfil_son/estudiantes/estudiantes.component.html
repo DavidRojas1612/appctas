@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="header">
+        <h1>Nuevo estudiante</h1>
+    </div>
+    <div class="content">
+        <form (ngSubmit)="guardar(forma)" #forma="ngForm">
+            <div class="form">
+                <div class="form-group">
+                    <label class="label-f">Nombre</label>
+                    <input class="input-f" type="text" name="nombre" [(ngModel)]="estudiante.nombre" required>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="label-f">Cedula</label>
+                    <input class="input-f" type="text" name="cedula" [(ngModel)]="estudiante.cedula" required>
+
+                </div>
+                <div class="form-group chk">
+                    <label class="label-f">Materias</label>
+                    <div class="check" *ngFor="let item of actas; let i = index">
+                        <input type="checkbox"  class="box" name="{{i+1}}" id="{{i+1}}" (click)="muestra(item.ID)">
+                        <label for="{{i+1}}">{{item.nombre}}</label>    
+                    </div>
+                </div>
+            
+            
+                <button [disabled]="!forma.valid" type="submit" class="button-f">
+                    <i [ngClass]="{'fa-save': !loading, 'fa-sync fa-spin': loading }" class="fas"></i>
+                    <span *ngIf="!loading">Añadir</span>
+                    <span *ngIf="loading"> Añadiendo...</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

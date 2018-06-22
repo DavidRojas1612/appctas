@@ -1,0 +1,66 @@
+<div class="container">
+  <h1 >Matricular Materia</h1>
+   <div class="content">
+        <form (ngSubmit)="guardarmateria(forma)" #form="ngForm">
+          <div class="form-group">
+            <label class="label-f">ID</label>
+            <input class="input-f" type="text" [(ngModel)]="materia.ID" name="id">
+          </div>
+          <div class="form-group">
+            <label class="label-f">Codigo</label>
+            <div class="control">
+              <input class="input-f" type="text" name="codigo" [(ngModel)]="materia.codigo" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label-f">Grupo</label>
+            <div class="control">
+              <input class="input-f" type="text" name="group" [(ngModel)]="materia.grupo" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label-f">Profesor</label>
+              <div class="select">
+                <select name="profe" [(ngModel)]="materia.profesor" class="input-f">
+                  <option>luis daniel</option>
+                  <option>monica</option>
+                  <option>xiomara</option>
+                </select>
+              </div>
+              <span class="icon is-left">
+                <i class="fas fa-globe"></i>
+              </span>            
+          </div>
+          <div class="form-group">
+            <label class="label-f">Nivel</label>
+            <input class="input-f" name="nivel" [(ngModel)]="materia.nivel" type="text">
+          </div>
+          <div class="form-group">
+            <label class="label-f">Nombre</label>
+            <input class="input-f" name="name" [(ngModel)]="materia.nombre" type="text">
+          </div>
+          <div>
+            <br>
+            <button class=" button-f" type="submit">guardar</button>
+          </div>
+        </form>
+      </div>
+      <div class="content ">
+        <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Materia</th>
+              <th>Grupo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of mates">
+            <tr>
+              <td>{{item.nombre}}</td>
+              <td>{{item.grupo}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>

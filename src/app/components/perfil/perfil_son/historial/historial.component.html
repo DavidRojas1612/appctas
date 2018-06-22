@@ -1,0 +1,54 @@
+<div class="container">
+ 
+  <form>
+    <div class="content">
+        <h1 class="title">Historial Estudiante</h1>
+      <div class="form-group">
+        <label class="label-f">Cedula</label>
+        <input class="input-f" type="number" #cedula>
+      </div>
+      <button type="submit" class="button-f" (click)="historial(cedula.value)">
+        historial
+      </button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>
+            <abbr title="Cedula">Asignatura</abbr>
+          </th>
+          <th>
+            <abbr title="Parcial1">Parcial 1</abbr>
+          </th>
+          <th>
+            <abbr title="Parcial2">Parcial 2</abbr>
+          </th>
+          <th>
+            <abbr title="Seguimiento">seguimiento</abbr>
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let mate of histo; let i = index">
+        <tr>
+          <td>
+            {{i + 1}}
+          </td>
+          <td>
+            {{mate.nombre}}
+          </td>
+          <td>
+            {{mate.notas[0]}}
+          </td>
+          <td>
+            {{mate.notas[1]}}
+          </td>
+          <td>
+            {{mate.notas[2]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
