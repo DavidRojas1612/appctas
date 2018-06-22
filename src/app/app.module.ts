@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 import { HttpClientModule } from "@angular/common/http";
 
 
@@ -44,10 +43,9 @@ import { HistorialComponent } from './components/perfil/perfil_son/historial/his
     FormsModule,
     ReactiveFormsModule,
     appRouting,
-    AmplifyAngularModule,
     HttpClientModule
   ],
-  providers: [AuthService,SharedService,AmplifyService,SactasService],
+  providers: [AuthService,SharedService,SactasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

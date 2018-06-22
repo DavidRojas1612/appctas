@@ -11,8 +11,6 @@ import {
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import Amplify from 'aws-amplify';
-import * as AWS from 'aws-sdk';
-
 
 if (environment.production) {
   enableProdMode();
@@ -22,7 +20,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
   
 
-  
+
   Amplify.configure({
     Auth: { 
 

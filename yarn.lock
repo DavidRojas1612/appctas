@@ -190,10 +190,6 @@
   dependencies:
     "@types/jasmine" "*"
 
-"@types/lodash@^4.14.106":
-  version "4.14.109"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.109.tgz#b1c4442239730bf35cabaf493c772b18c045886d"
-
 "@types/node@^6.0.46":
   version "6.0.111"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.111.tgz#85f880a1bab78d395a5de9bcb5319e73a0c31400"
@@ -329,7 +325,7 @@ amazon-cognito-auth-js@^1.1.9:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/amazon-cognito-auth-js/-/amazon-cognito-auth-js-1.2.0.tgz#637f044a3a6114d6d0a87b415157ea36f32431e8"
 
-amazon-cognito-identity-js@^2.0.0, amazon-cognito-identity-js@^2.0.3:
+amazon-cognito-identity-js@^2.0.0:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-2.0.6.tgz#a98ab8df96e3f0205e0ddad5c75360fdfcd45e5b"
   dependencies:
@@ -574,12 +570,6 @@ autoprefixer@^7.2.3:
     num2fraction "^1.2.2"
     postcss "^6.0.17"
     postcss-value-parser "^3.2.3"
-
-aws-amplify-angular@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/aws-amplify-angular/-/aws-amplify-angular-0.1.1.tgz#2b4b4381af6a7f8be23c852c1f52f59633359ff6"
-  dependencies:
-    "@types/lodash" "^4.14.106"
 
 aws-amplify@^0.3.0:
   version "0.3.4"
