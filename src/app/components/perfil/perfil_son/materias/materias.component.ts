@@ -43,10 +43,10 @@ export class MateriasComponent implements OnInit, OnChanges {
     })
   }
 
-  guardarmateria(forma:NgForm){
+  guardarmateria(){
    this.mates.push(this.materia);
     this.data.InsertarMateria(this.materia);    
-    forma.reset();
+   
   }
 
 }

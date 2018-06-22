@@ -10,18 +10,18 @@ import { setTimeout } from "timers";
 @Component({
   selector: "app-estudiantes",
   templateUrl: "./estudiantes.component.html",
-  styleUrls: ['./estudiantes.component.css']
+  styleUrls: ["./estudiantes.component.css"]
 })
 export class estudiantesComponent implements OnInit {
   info: any[] = [];
   actas: any[] = [];
   actasH: any[] = [];
-  selected:boolean = false;
-  mateChek:boolean = false;
-  loading:boolean =false;
-  materias:any[]=[];
-  num:number = 0;
-  estudiante:studen = {
+  selected: boolean = false;
+  mateChek: boolean = false;
+  loading: boolean = false;
+  materias: any[] = [];
+  num: number = 0;
+  estudiante: studen = {
     nombre: null,
     cedula: null,
     notas: [0, 0, 0]
@@ -30,54 +30,42 @@ export class estudiantesComponent implements OnInit {
   constructor(private data: SactasService) {}
 
   ngOnInit() {
-
-    this.data.listarbien().then(resp=>{
+    this.data.listarbien().then(resp => {
       this.actas = resp.Items;
-      
     });
   }
 
-  muestra(value:any){  
-    
-      let found = this.materias.some(acta=>{
-        return acta ===value;
-      });
-      if (!found) { 
-        this.materias.push(value);
-        console.log(this.materias);
-      }else if(found){
-        let idx = this.materias.indexOf(value);
-        console.log(idx);  
-        this.materias.splice(idx,1);
-        console.log(this.materias)
-      }
-    
+  muestra(value: any) {
+    let found = this.materias.some(acta => {
+      return acta === value;
+    });
+    if (!found) {
+      this.materias.push(value);
+    } else if (found) {
+      let idx = this.materias.indexOf(value);
 
-
+      this.materias.splice(idx, 1);
+    }
   }
 
-  guardar(forma:NgForm) {
+  guardar(forma: NgForm) {
     console.log(this.estudiante);
 
     this.data.listarbien().then(resp => {
       this.materias.forEach(id => {
         resp.Items.forEach(acta => {
-          console.log(acta);
           if (acta.ID == id) {
             acta.students = [...acta.students, this.estudiante];
 
             this.data.Insertar(id, acta);
             this.loading = forma.valid;
-            setTimeout( ()=>this.loading = false ,1000 )
-            
+            setTimeout(() => (this.loading = false), 1000);
           }
         });
-        
       });
-      
+
       forma.reset();
     });
-    
   }
 
   historial(cedula = "00010") {
@@ -87,16 +75,11 @@ export class estudiantesComponent implements OnInit {
           return result.cedula === cedula;
         });
       });
-      console.log(this.actasH);
     });
   }
 
-  
-  ejecutar(forma:NgForm){
+  ejecutar(forma: NgForm) {
     this.loading = forma.valid;
-    setTimeout( ()=>this.loading = false ,3000)
-    
+    setTimeout(() => (this.loading = false), 3000);
   }
-
-   
 }

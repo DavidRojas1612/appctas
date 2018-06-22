@@ -13,8 +13,8 @@ import { Subscriber } from 'rxjs/Subscriber';
 })
 export class PerfilComponent implements OnInit , DoCheck{
 
-  info:any[] =[];
-  user:any[] =[];
+  info:any =[];
+  user:any =[];
   ver:boolean;
   logged:boolean;
   constructor(

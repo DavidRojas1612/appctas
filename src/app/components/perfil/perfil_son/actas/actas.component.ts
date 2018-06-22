@@ -16,21 +16,19 @@ export class actasComponent implements OnInit {
   actasp: any[] = [];
   perfil: any;
   nombre: any;
-  ver:boolean = false;
+  ver: boolean = false;
 
   constructor(
     private data: SactasService,
     private _auth: AuthService,
     private router: Router,
-    private shared: SharedService,
-  ) {
-    
-  }
+    private shared: SharedService
+  ) {}
 
   ngVer() {
-    this.ver = !this.ver
+    this.ver = !this.ver;
     console.log(this.ver);
-    
+
     this.shared.emitChange(this.ver);
   }
 
@@ -50,32 +48,22 @@ export class actasComponent implements OnInit {
           }
         });
       });
-      console.log(this.actasp);
-      
     });
   }
 
-  cargar(){
-    
-  }
+  cargar() {}
 
-  eliminar(id){
-    console.log(id);
-    
-    let i=0;
-    let index=0;
+  eliminar(id) {
+    let i = 0;
+    let index = 0;
     console.log(this.actasp);
-    this.actas.forEach( (resp) => {
-   
-     if(resp.ID === id){
-      index = i;
-     }
-     i++;
+    this.actas.forEach(resp => {
+      if (resp.ID === id) {
+        index = i;
+      }
+      i++;
     });
-    console.log(index);
-    this.actasp.splice(index,1);
+    this.actasp.splice(index, 1);
     this.data.DeleteMate(id);
-    
-    
   }
 }

@@ -32,9 +32,6 @@ export class SactasService {
     return this.dinamo.scan(this.param, (err, data) => {
       if (err) {
         console.log(err);
-      }else{
-        console.log(data);
-        
       }
     });
   }
